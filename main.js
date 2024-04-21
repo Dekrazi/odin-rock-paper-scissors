@@ -18,22 +18,33 @@ function getPlayerChoice(choices) {
 }
 
 // main loop
+let rounds = 0
+let playerScore = 0
+let computerScore = 0
 
-function playGame() {
-    const computerChoice = getComputerChoice(choices);
-    const playerChoice = getPlayerChoice(choices);
+while (rounds < 5) {
 
-    if (computerChoice === playerChoice) {
-        console.log("It's a tie!");
-    } else if (
-        (computerChoice === "rock" && playerChoice === "scissors") ||
-        (computerChoice === "paper" && playerChoice === "rock") ||
-        (computerChoice === "scissors" && playerChoice === "paper")
-    ) {
-        console.log("Computer won!");
-    } else {
-        console.log("Player won!");
+    function playGame() {
+        const computerChoice = getComputerChoice(choices);
+        const playerChoice = getPlayerChoice(choices);
+
+        if (computerChoice === playerChoice) {
+            console.log("It's a tie!");
+        } else if (
+            (computerChoice === "rock" && playerChoice === "scissors") ||
+            (computerChoice === "paper" && playerChoice === "rock") ||
+            (computerChoice === "scissors" && playerChoice === "paper")
+        ) {
+            console.log("Computer won!");
+            computerScore += 1
+        } else {
+            console.log("Player won!");
+            playerScore += 1
+        }
     }
+
+    playGame();
+    rounds += 1
 }
 
-playGame();
+console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`)
