@@ -2,7 +2,6 @@ const choices = ["rock", "paper", "scissors"]
 
 function getComputerChoice(choices) {
     const computerChoice = choices[Math.floor(choices.length * Math.random())];
-    console.log("Computer choice:", computerChoice); // Debugging
     return computerChoice;
 }
 
